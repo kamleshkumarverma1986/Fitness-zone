@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <base href="/">
+    <meta charset="utf-8">
+    <title>Angular-2 Sample Application</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <!-- Load libraries -->
+    <!-- Load all CSS files -->
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./node_modules/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="prod/styles/main.css">
+
+    <!-- IE required polyfills, in this exact order -->
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="./node_modules/es6-shim/es6-shim.min.js"></script>
+    <script src="./node_modules/systemjs/dist/system-polyfills.js"></script>
+    <script src="./node_modules/angular2/bundles/angular2-polyfills.js"></script>
+    <script src="./node_modules/systemjs/dist/system.src.js"></script>
+    <script src="./node_modules/rxjs/bundles/Rx.js"></script>
+    <script src="./node_modules/angular2/bundles/angular2.dev.js"></script>
+    <script src="./node_modules/angular2/bundles/router.dev.js"></script>
+</head>
+<body>
+<my-app> 
+    <div class="loading">Loading...</div>
+</my-app>
+<script>
+    System.config({
+        packages: {
+            prod: {
+                format: 'register',
+                defaultExtension: 'js'
+            }
+        }
+    });
+    System.import('prod/boot')
+            .then(null, console.error.bind(console));
+</script>
+</body>
+</html>
