@@ -1,6 +1,6 @@
 <div class="masthead clearfix">
   <div class="inner">
-    <h3 class="masthead-brand">{{appName}}</h3>
+    <h3 class="masthead-brand" [routerLink]="['Home']">{{appName}}</h3>
     <nav>
       <ul class="nav masthead-nav">
         <li *ngFor="#menu of menus" [class.active]="menu.active" (click)="setActive(menu.id)">

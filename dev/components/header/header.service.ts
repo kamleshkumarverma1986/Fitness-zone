@@ -1,24 +1,24 @@
 import {Injectable} from 'angular2/core';
 
 @Injectable()
-export class MenuService {
+export class HeaderService {
 
 	public menus: Array<any> = [{
-        label: 'Home',
-        id: 'home',
-        href: ['Home'],
+        label: 'Shop',
+        id: 'shop',
+        href: ['Shop'],
         active: true
     },
     {
-        label: 'About',
-        id: 'about',
-        href: ['About'],
+        label: 'Fitness',
+        id: 'fitness',
+        href: ['Fitness'],
         active: false
     },
     {
-        label: 'Contact',
-        id: 'contact',
-        href: ['Contact'],
+        label: 'Events',
+        id: 'event',
+        href: ['Event'],
         active: false
     }];
 

@@ -1,3 +1,3 @@
 export const CONSTANT = {
-	"APP_NAME" : "Angular-2"
+	"APP_NAME" : "Fitness-zone"
 };
