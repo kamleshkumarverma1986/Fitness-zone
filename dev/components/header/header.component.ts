@@ -10,7 +10,7 @@ import {CONSTANT} from '../../utility/constant';
     directives : [ROUTER_DIRECTIVES],
     providers: [HeaderService]
 })
-export class HeaderComponent implements OnInit{
+export class HeaderComponent implements OnInit {
     public appName: string;
 	public menus: Array<any>;
 	constructor(private _headerService : HeaderService) {}
