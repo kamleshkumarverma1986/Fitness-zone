@@ -23,5 +23,4 @@ export class HeaderComponent implements OnInit {
     setActive(menuId: string) {
     	this._headerService.setActive(menuId);
     }
-
 }
