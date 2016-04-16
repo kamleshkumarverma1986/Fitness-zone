@@ -13,9 +13,17 @@
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
+            <ul class="nav navbar-nav pull-left">
               <li *ngFor="#menu of menus" [class.active]="menu.active" (click)="setActive(menu.id)">
                 <a href="" [routerLink]="menu.href">{{menu.label}}</a>
+              </li>
+            </ul>
+             <ul class="nav navbar-nav pull-right custom-nav-for-login-signup">
+              <li>
+                <!-- Trigger the login modal with a button -->
+                <button type="button" class="btn" data-toggle="modal" data-target="#loginModal">LOGIN</button>
+                <!-- Trigger the signup modal with a button -->
+                <button type="button" class="btn" data-toggle="modal" data-target="#signupModal">SIGN UP</button>
               </li>
             </ul>
         </div>
@@ -23,3 +31,9 @@
     </div>
     <!-- /.container -->
 </nav>
+
+<!-- Login Modal -->
+<login></login>
+
+<!-- Signup Modal -->
+<signup></signup>

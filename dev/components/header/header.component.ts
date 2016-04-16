@@ -1,14 +1,17 @@
-import {Component,OnInit} from 'angular2/core';
-import {ROUTER_DIRECTIVES} from 'angular2/router';
-import {HeaderService} from '../header/header.service';
-import {CONSTANT} from '../../utility/constant';
+import { Component, OnInit } from 'angular2/core';
+import { ROUTER_DIRECTIVES } from 'angular2/router';
+import { HeaderService } from '../header/header.service';
+import { CONSTANT } from '../../utility/constant';
+import { LoginComponent } from '../login/login.component';
+import { SignupComponent } from '../signup/signup.component';
+
 
 @Component({
     selector: 'header',
     styleUrls: ['../prod/components/header/header.css'],
     templateUrl: '../prod/components/header/header.html',
-    directives : [ROUTER_DIRECTIVES],
-    providers: [HeaderService]
+    directives : [ ROUTER_DIRECTIVES, LoginComponent, SignupComponent ],
+    providers: [ HeaderService ]
 })
 export class HeaderComponent implements OnInit {
     public appName: string;
