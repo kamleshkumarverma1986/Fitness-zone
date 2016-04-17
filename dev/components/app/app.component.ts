@@ -10,14 +10,14 @@ import {EventComponent} from '../event/event.component';
 @Component({
     selector: 'my-app',
     templateUrl: '../prod/components/app/app.html',
-    styleUrls: ['../prod/components/app/app.css'], 
+    styleUrls: ['../prod/components/app/app.css'],
     directives: [ROUTER_DIRECTIVES,HeaderComponent,FooterComponent]
 })
 @RouteConfig([
 	{ path:'/' ,name: 'Home' ,component: HomeComponent ,useAsDefault: true },
-	{ path:'/shop' ,name: 'Shop' ,component: ShopComponent },
-	{ path:'/fitness' ,name: 'Fitness' ,component: FitnessComponent },
-	{ path:'/event' ,name: 'Event' ,component: EventComponent }
+	{ path:'/shop/...' ,name: 'Shop' ,component: ShopComponent },
+	{ path:'/fitness/:type' ,name: 'Fitness' ,component: FitnessComponent },
+	{ path:'/event/:location' ,name: 'Event' ,component: EventComponent }
 ])
 export class AppComponent {
 

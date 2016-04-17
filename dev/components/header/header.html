@@ -14,9 +14,12 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav pull-left">
-              <li *ngFor="#menu of menus" [class.active]="menu.active" (click)="setActive(menu.id)">
-                <a href="" [routerLink]="menu.href">{{menu.label}}</a>
-              </li>
+                <li *ngFor="#menu of menus" [class.active]="menu.active" (click)="setActive(menu.id)" [class.dropdown]="menu.submenu">
+                    <a href="" class="dropdown-toggle" data-toggle="dropdown">{{menu.label}} <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li *ngFor="#submenu of menu.submenu"><a href="" [routerLink]="submenu.href">{{submenu.label}}</a></li>
+                    </ul>
+                </li>
             </ul>
              <ul class="nav navbar-nav pull-right custom-nav-for-login-signup">
               <li>

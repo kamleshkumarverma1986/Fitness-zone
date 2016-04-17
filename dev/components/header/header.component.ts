@@ -14,8 +14,8 @@ import { SignupComponent } from '../signup/signup.component';
     providers: [ HeaderService ]
 })
 export class HeaderComponent implements OnInit {
-    public appName: string;
-	public menus: Array<any>;
+    appName: string;
+	menus: Array<any>;
 	constructor(private _headerService : HeaderService) {}
 
 	ngOnInit(): any {

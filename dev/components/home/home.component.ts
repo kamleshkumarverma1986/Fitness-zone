@@ -6,8 +6,8 @@ import { CONSTANT } from '../../utility/constant';
     styleUrls: ['../prod/components/home/home.css']
 })
 export class HomeComponent implements OnInit {
-	public appName: string;
-	public appTagLine: string;
+	appName: string;
+	appTagLine: string;
 	
 	constructor() {}
 
