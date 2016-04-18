@@ -13,19 +13,16 @@
 	    <div class="item col-xs-12 col-sm-6 col-md-4 col-lg-4" *ngFor="#product of products">
 	        <div class="thumbnail">
 	            <a href="" [routerLink]="['Product', { id: product.id }]">
-	                <img class="img-responsive" src="{{product.img_url}}"/>
+	                <img class="img-responsive img-size" src="{{product.img_url}}"/>
 	            </a>
 	            <div class="caption">
-	                <h4 class="group inner list-group-item-heading">
+	                <label>
 	                    {{product.name}}
-	                </h4>
-	                <p class="group inner list-group-item-text">
-	                    {{product.desc.substring(0,30)}}
-	                </p>
+	                </label>
 	                <div class="row">
 	                    <div class="col-xs-12 col-md-6">
 	                        <p class="lead">
-	                            {{ product.price }}
+	                            Rs. {{ product.price }}
 	                        </p>
 	                    </div>
 	                    <div class="col-xs-12 col-md-6">

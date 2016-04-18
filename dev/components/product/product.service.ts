@@ -17,4 +17,8 @@ export class ProductService {
 		return this._http.get(CONSTANT.BASE_URL+'products/'+productId,{headers: this.getHeader()}).map( res=> res.json() );
 	}
 
+	postReview(reviewObject) {
+		return this._http.post(CONSTANT.BASE_URL+'product_reviews',reviewObject,{headers: this.getHeader()}).map( res=> res.json() );
+	}
+
 }

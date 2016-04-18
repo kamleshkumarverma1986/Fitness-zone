@@ -8,19 +8,19 @@
 	      <h4><span class="glyphicon glyphicon-lock"></span> Login</h4>
 	    </div>
 	    <div class="modal-body custom-modal-body">
-	      <form role="form">
+	      <form role="form" [ngFormModel]="loginForm" (ngSubmit)="userLogin(loginForm.value)">
 	        <div class="form-group">
 	          <label for="email"><span class="glyphicon glyphicon-user"></span> Email</label>
-	          <input type="text" class="form-control" id="email" placeholder="Enter Email">
+	          <input type="email" class="form-control" id="email" placeholder="Enter Email" ngControl="email" required>
 	        </div>
 	        <div class="form-group">
 	          <label for="password"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
-	          <input type="password" class="form-control" id="password" placeholder="Enter Password">
+	          <input type="password" class="form-control" id="password" placeholder="Enter Password" ngControl="password" required>
 	        </div>
 	        <div class="checkbox">
 	          <label><input type="checkbox" value="" checked>Remember me</label>
 	        </div>
-	          <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Login</button>
+	          <button type="submit" [disabled]="!loginForm.valid" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Login</button>
 	      </form>
 	    </div>
 	    <div class="modal-footer">

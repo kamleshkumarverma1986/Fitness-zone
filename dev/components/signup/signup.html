@@ -8,24 +8,24 @@
         <h4><span class="glyphicon glyphicon-lock"></span> Sign up</h4>
       </div>
       <div class="modal-body custom-modal-body">
-        <form role="form">
+        <form role="form" [ngFormModel]="signupForm" (ngSubmit)="userSignup(signupForm.value)">
           <div class="form-group">
             <label for="name"><span class="glyphicon glyphicon-user"></span> Name </label>
-            <input type="text" class="form-control" id="name" placeholder="Enter Name">
+            <input type="text" class="form-control" id="name" placeholder="Enter Name" ngControl="name" required>
           </div>
           <div class="form-group">
-            <label for="usrname"><span class="glyphicon glyphicon-envelope"></span> Email </label>
-            <input type="text" class="form-control" id="usrname" placeholder="Enter Email">
+            <label for="email"><span class="glyphicon glyphicon-envelope"></span> Email </label>
+            <input type="email" class="form-control" id="email" placeholder="Enter Email" ngControl="email" required>
           </div>
           <div class="form-group">
             <label for="password"><span class="glyphicon glyphicon-eye-open"></span> Password </label>
-            <input type="password" class="form-control" id="password" placeholder="Enter Password">
+            <input type="password" class="form-control" id="password" placeholder="Enter Password" ngControl="password" required>
           </div>
           <div class="form-group">
-            <label for="confirm_password"><span class="glyphicon glyphicon-eye-open"></span> Confirm password </label>
-            <input type="password" class="form-control" id="confirm_password" placeholder="Confirm Password">
+            <label for="confirmPassword"><span class="glyphicon glyphicon-eye-open"></span> Confirm password </label>
+            <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password" ngControl="confirmPassword" required>
           </div>
-          <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Signup</button>
+          <button type="submit" [disabled]="!signupForm.valid" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Signup</button>
         </form>
       </div>
       <div class="modal-footer">

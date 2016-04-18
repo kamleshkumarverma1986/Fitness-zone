@@ -1,16 +1,22 @@
 import { Component, OnInit } from 'angular2/core';
 import { RouteParams } from 'angular2/router';
+import { FitnessService } from '../fitness/fitness.service';
 
 @Component({
     templateUrl: '../prod/components/fitness/fitness.html',
-    styleUrls: ['../prod/components/fitness/fitness.css']
+    styleUrls: ['../prod/components/fitness/fitness.css'],
+    providers: [ FitnessService ]
 })
 export class FitnessComponent implements OnInit {
+
 	type: string;
-  	constructor(params: RouteParams) {
+	fitnessCenters: Array<any>;
+
+  	constructor(params: RouteParams, private _fitnessService: FitnessService) {
     	this.type = params.get('type');
   	}
+
   	ngOnInit(): any {
-        console.log("This is the type ===> " + this.type);
+        this._fitnessService.getFitnessCenters(this.type).subscribe(fitnessCenters => this.fitnessCenters = fitnessCenters);
     }
 }
