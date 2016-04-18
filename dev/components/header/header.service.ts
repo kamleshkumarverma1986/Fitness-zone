@@ -9,10 +9,10 @@ export class HeaderService {
         href: ['Shop'],
         active: true,
         submenu: [
-            { label: 'Protein Supplements', id: 'protein-supplements', href: ['Shop/ProductList', {category: 'protein-supplements'}] },
-            { label: 'Weight Management', id: 'weight-management', href: ['Shop/ProductList', {category: 'weight-management'}] },
-            { label: 'Vitamins Supplements', id: 'vitamins-supplements', href: ['Shop/ProductList', {category: 'vitamins-supplements'}] },
-            { label: 'Fitness Accessories', id: 'fitness-accessories', href: ['Shop/ProductList', {category: 'fitness-accessories'}] }
+            { label: 'Protein Supplements', id: 'protein-supplements', href: ['Shop', {category: 'protein-supplements'}], active: false },
+            { label: 'Weight Management', id: 'weight-management', href: ['Shop', {category: 'weight-management'}], active: false },
+            { label: 'Vitamins Supplements', id: 'vitamins-supplements', href: ['Shop', {category: 'vitamins-supplements'}], active: false },
+            { label: 'Fitness Accessories', id: 'fitness-accessories', href: ['Shop', {category: 'fitness-accessories'}], active: false }
         ]
     },
     {
@@ -48,6 +48,12 @@ export class HeaderService {
 	setActive(menuId: string) {
         for (let menu of this.menus) {
             menu.active = menu.id === menuId;
+        }
+    }
+
+    setActiveForSubmenu(menuIndex: number, submenuId: string) {
+        for (let submenu of this.menus[menuIndex].submenu) {
+            submenu.active = submenu.id === submenuId;
         }
     }
 
