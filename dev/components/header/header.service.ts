@@ -21,12 +21,12 @@ export class HeaderService {
         href: ['Fitness'],
         active: false,
         submenu: [
-            { label: 'Gyms', id: 'gyms', href: ['Fitness', {type: 'gyms'}] },
-            { label: 'Slimming Centers', id: 'slimming-centers', href: ['Fitness', {type: 'slimming-centers'}] },
-            { label: 'Sports Club', id: 'sports-club', href: ['Fitness', {type: 'sports-club'}] },
-            { label: 'Dance', id: 'dance', href: ['Fitness', {type: 'dance'}] },
-            { label: 'Martial Arts', id: 'martial-arts', href: ['Fitness', {type: 'martial-arts'}] },
-            { label: 'Yoga', id: 'yoga', href: ['Fitness', {type: 'yoga'}] }
+            { label: 'Slimming Centers', id: 'slimming-centers', href: ['Fitness', {type: 'slimming_centers'}], img_url: '../assets/img/gym1.jpg', desc: 'Get in shape the right way with one of the top slimming centers in Bangalore.' },
+            { label: 'Gyms', id: 'gyms', href: ['Fitness', {type: 'gyms'}], img_url: '../assets/img/gym2.jpg', desc: 'Workout your way to six packs in the trendiest gyms of Bangalore.' },
+            { label: 'Sports Club', id: 'sports-club', href: ['Fitness', {type: 'sport_clubs'}], img_url: '../assets/img/gym3.jpg', desc: 'Play your favorite sport with friends and family at a nearby sports club.' },
+            { label: 'Dance', id: 'dance', href: ['Fitness', {type: 'dances'}], img_url: '../assets/img/gym4.jpg', desc: 'Join your favorite dance classes to stay fit – Aerobics, Zumba, Hip-hop and more.' },
+            { label: 'Martial Arts', id: 'martial-arts', href: ['Fitness', {type: 'martial_arts'}], img_url: '../assets/img/gym5.jpg', desc: 'Book a free session of Martial Arts and get trained for speed, strength and mobility.' },
+            { label: 'Yoga', id: 'yoga', href: ['Fitness', {type: 'yogas'}], img_url: '../assets/img/gym6.jpg', desc: 'Stay fit and stress free with some peaceful yoga sessions in nearby yoga centre.' }
         ]
     },
     {

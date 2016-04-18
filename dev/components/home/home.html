@@ -40,40 +40,13 @@
     <!-- /.row -->
     <hr>
     <div class="row">
-        <div class="col-sm-4">
-            <img class="img-circle img-responsive img-center" src="../assets/img/gym1.jpg" alt="">
-            <center><h2>Slimming Centers</h2></center>
-            <p>Get in shape the right way with one of the top slimming centers in Bangalore.</p>
-        </div>
-        <div class="col-sm-4">
-            <img class="img-circle img-responsive img-center" src="../assets/img/gym2.jpg" alt="">
-            <center><h2>Gyms</h2></center>
-            <p>Workout your way to six packs in the trendiest gyms of Bangalore.</p>
-        </div>
-        <div class="col-sm-4">
-            <img class="img-circle img-responsive img-center" src="../assets/img/gym3.jpg" alt="">
-            <center><h2>Sports Club</h2></center>
-            <p>Play your favorite sport with friends and family at a nearby sports club.</p>
+        <div class="col-sm-4" *ngFor="#submenu of menus[1].submenu">
+            <a href=""[routerLink]="submenu.href">
+                <img class="img-circle img-responsive img-center" src="{{submenu.img_url}}">
+            </a>
+            <center><h2>{{submenu.label}}</h2></center>
+            <p>{{submenu.desc}}</p>
         </div>
     </div>
-    <hr>
-    <div class="row">
-        <div class="col-sm-4">
-            <img class="img-circle img-responsive img-center" src="../assets/img/gym4.jpg" alt="">
-            <center><h2>Dance</h2></center>
-            <p>Join your favorite dance classes to stay fit – Aerobics, Zumba, Hip-hop and more.</p>
-        </div>
-        <div class="col-sm-4">
-            <img class="img-circle img-responsive img-center" src="../assets/img/gym5.jpg" alt="">
-            <center><h2>Martial Arts</h2></center>
-            <p>Book a free session of Martial Arts and get trained for speed, strength and mobility.</p>
-        </div>
-        <div class="col-sm-4">
-            <img class="img-circle img-responsive img-center" src="../assets/img/gym6.jpg" alt="">
-            <center><h2>Yoga</h2></center>
-            <p>Stay fit and stress free with some peaceful yoga sessions in nearby yoga centre.</p>
-        </div>
-    </div>
-    <!-- /.row -->
 </div>
 <!-- /.container -->
