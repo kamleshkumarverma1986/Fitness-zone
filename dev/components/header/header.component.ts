@@ -10,8 +10,7 @@ import { SignupComponent } from '../signup/signup.component';
     selector: 'header',
     styleUrls: ['../prod/components/header/header.css'],
     templateUrl: '../prod/components/header/header.html',
-    directives : [ ROUTER_DIRECTIVES, LoginComponent, SignupComponent ],
-    providers: [ HeaderService ]
+    directives : [ ROUTER_DIRECTIVES, LoginComponent, SignupComponent ]
 })
 export class HeaderComponent implements OnInit {
     appName: string;

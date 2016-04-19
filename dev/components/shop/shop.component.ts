@@ -7,7 +7,7 @@ import { HeaderService } from '../header/header.service';
     templateUrl: '../prod/components/shop/shop.html',
     styleUrls: ['../prod/components/shop/shop.css'],
     directives: [ ROUTER_DIRECTIVES ],
-    providers: [ HeaderService, ShopService ]
+    providers: [ ShopService ]
 })
 export class ShopComponent implements OnInit {
     category: string;

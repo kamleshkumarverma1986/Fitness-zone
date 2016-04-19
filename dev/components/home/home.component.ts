@@ -6,8 +6,7 @@ import { HeaderService } from '../header/header.service';
 @Component({
     templateUrl: '../prod/components/home/home.html',
     styleUrls: ['../prod/components/home/home.css'],
-    directives : [ ROUTER_DIRECTIVES ],
-    providers: [ HeaderService ]
+    directives : [ ROUTER_DIRECTIVES ]
 })
 export class HomeComponent implements OnInit {
 	appName: string;
