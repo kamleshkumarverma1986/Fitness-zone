@@ -1,9 +1,33 @@
 .img-size {
-	height: 278px;
-  	padding: 10px;
-  	width: 571px;
+	height:228px;
+    padding:10px;
+    width:453px;
+}
+
+.fitness-center-detail {
+    border: 2px solid black;
+    box-shadow: 3px 3px 5px 6px #ccc;
+    margin-top: 3px;
 }
 
 .page-header {
 	text-transform: capitalize;
+}
+
+.panel-heading {
+    border-radius: 0px !important;
+    background-color: #383a3b;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.panel-body {
+    border-radius: 0px !important;
+    background-color: #525252;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.search-margin {
+    margin-top: 39px;
 }

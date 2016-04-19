@@ -1,7 +1,48 @@
-<div class="inner cover">
-    <h1 class="cover-heading">event page.</h1>
-    <p class="lead">Home is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
-    <p class="lead">
-      <a href="http://github.com/kamleshKumarVerma/" class="btn btn-lg btn-default">Learn more</a>
-    </p>
+<!-- Image Background Page Header -->
+<!-- Note: The background image is set within the business-casual.css file. -->
+<header class="business-header" [ngClass]="{ 'bangalore': location === 'bangalore', 'mumbai': location === 'mumbai',  'delhi': location === 'delhi' }">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="tagline">Upcoming Events in <span class="location-for-tagline">{{location}}</span>
+                	<h3>Marathon | Sports | Yoga | Fun & More</h3>
+                </h1>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Page Content -->
+<div class="container">
+
+    <!-- Events Row -->
+    <div class="row">
+    	<div *ngIf="!events" class="loading"></div>
+        <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 portfolio-item" *ngFor="#event of events">
+            <a href="">
+                <img class="img-responsive img-size" src="{{event.img_url}}">
+            </a>
+            <h4>
+                <a href="">{{event.name}}</a>
+            </h4>
+            <div class="row">
+            	<div class="col-md-6 pull-left">
+            		<div>
+		            	<i class="fa fa-map-marker"></i>  {{event.location}}
+		            </div>
+		            <div>
+		            	<small><i class="fa fa-clock-o"></i>  {{event.timing}}</small>
+		            </div>
+            	</div>
+            	<div class="col-md-6 pull-right">
+            		<button class="btn btn-success">BOOK TICKET</button>
+            	</div>
+            </div>
+           
+        </div>
+    </div>
+    <!-- /.row -->
+
+
 </div>
+<!-- /.container -->

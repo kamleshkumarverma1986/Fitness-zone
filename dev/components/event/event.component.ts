@@ -1,16 +1,22 @@
 import { Component, OnInit } from 'angular2/core';
 import { RouteParams } from 'angular2/router';
+import { EventService } from '../event/event.service';
 
 @Component({
     templateUrl: '../prod/components/event/event.html',
-    styleUrls: ['../prod/components/event/event.css']
+    styleUrls: ['../prod/components/event/event.css'],
+    providers: [ EventService ]
 })
 export class EventComponent implements OnInit {
+
 	location: string;
-  	constructor(params: RouteParams) {
+	events: Array<any>;
+
+  	constructor(params: RouteParams, private _eventService: EventService) {
     	this.location = params.get('location');
   	}
+
   	ngOnInit(): any {
-        console.log("This is the location ===> " + this.location);
+       	this._eventService.getEvents(this.location).subscribe(events => this.events = events);
     }
 }

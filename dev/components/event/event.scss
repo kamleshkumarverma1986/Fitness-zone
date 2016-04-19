@@ -1,0 +1,50 @@
+/* Header Image Background */
+
+.business-header {
+    height: 400px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+.bangalore {
+	background: url('../../assets/img/bangalore_event.jpg') center center no-repeat scroll;
+}
+
+.delhi {
+	background: url('../../assets/img/delhi_event.jpg') center center no-repeat scroll;
+}
+
+.mumbai {
+	background: url('../../assets/img/mumbai_event.jpg') center center no-repeat scroll;
+}
+
+/* Customize the text color and shadow color and to optimize text legibility. */
+
+.tagline {
+	margin-top: 260px;
+    text-shadow: 0 0 80px #000;
+    color: #fff;
+    background-color: #2F4F4F;
+    text-align: center;
+    padding: 3px;
+    opacity: 0.7;
+}
+
+.tagline .location-for-tagline {
+	text-transform: capitalize;
+}
+
+.img-center {
+    margin: 0 auto;
+}
+
+.img-size {
+	height:208px;
+    width:331px;
+}
+
+.portfolio-item {
+	padding: 30px;
+}
