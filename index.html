@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="prod/styles/main.css">
 
     <!-- IE required polyfills, in this exact order -->
+    <script src="./node_modules/ng2-bootstrap/bundles/ng2-bootstrap.min.js"></script>
     <script src="./node_modules/jquery/dist/jquery.min.js"></script>
     <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="./node_modules/es6-shim/es6-shim.min.js"></script>
@@ -29,14 +30,14 @@
 </my-app>
 <script>
     System.config({
-        packages: {
-            prod: {
-                format: 'register',
-                defaultExtension: 'js'
-            }
+        baseURL: '/node_modules',
+        "defaultJSExtensions": true,
+        map: {
+          prod: '/prod/'
         },
         paths: {
-            lodash: './node_modules/lodash/lodash.js'
+          "moment": "moment/moment",
+          "lodash": "lodash/lodash"
         }
     });
     System.import('prod/boot')

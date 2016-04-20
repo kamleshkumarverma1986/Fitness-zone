@@ -17,6 +17,9 @@
 	          <label for="password"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
 	          <input type="password" class="form-control" id="password" placeholder="Enter Password" ngControl="password" required>
 	        </div>
+	        <alert *ngFor="#alert of alerts; #i = index" [type]="alert.type" dismissOnTimeout="3000" dismissible="true" (close)="alerts.splice(i, 1)">
+			  {{ alert?.msg }}
+			</alert>
 	        <div class="checkbox">
 	          <label><input type="checkbox" value="" checked>Remember me</label>
 	        </div>

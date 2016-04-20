@@ -25,6 +25,9 @@
             <label for="confirmPassword"><span class="glyphicon glyphicon-eye-open"></span> Confirm password </label>
             <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password" ngControl="confirmPassword" required>
           </div>
+          <alert *ngFor="#alert of alerts; #i = index" [type]="alert.type" dismissOnTimeout="3000" dismissible="true" (close)="alerts.splice(i, 1)">
+            {{ alert?.msg }}
+          </alert>
           <button type="submit" [disabled]="!signupForm.valid" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Signup</button>
         </form>
       </div>
