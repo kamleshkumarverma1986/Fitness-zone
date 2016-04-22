@@ -1,7 +1,6 @@
 import { Injectable } from 'angular2/core';
 import { CONSTANT } from '../../utility/constant';
 import { Http, Headers } from 'angular2/http';
-import * as _ from 'lodash'
 
 @Injectable()
 export class LoginService {
@@ -14,8 +13,8 @@ export class LoginService {
         return headers;
     }
 
-    getLodashVersion() {
-        console.log('lodash version:', _.VERSION);
+    userLogin() {
+        return this._http.get(CONSTANT.BASE_URL+'users',{headers: this.getHeader()}).map( res=> res.json() );
     }
 
 }
