@@ -18,9 +18,11 @@ export class SignupComponent {
     email: Control;
     password: Control;
     alerts:Array<Object> = [];
+    registering: Boolean;
 
     constructor(private _formBuilder: FormBuilder, private _signupService: SignupService, private _authHelper: AuthHelper) {
       	this.buildSignupForm();
+        this.registering = false;
   	}
 
     buildSignupForm(): void {
@@ -36,6 +38,7 @@ export class SignupComponent {
 
 
     userSignup(signupData) {
+      this.registering = true;
       this._authHelper.isUserExistWhileSignup(signupData).subscribe( (isUserExist) => {
           if(isUserExist) {
             this.alerts.push({msg: 'User Already Exist!', type: 'danger', closable: true});
@@ -46,6 +49,7 @@ export class SignupComponent {
                 this.alerts.push({msg: 'Successfully Signup! Please Login!', type: 'success', closable: true});
             });
           }
+          this.registering = false;
       });
     }
 

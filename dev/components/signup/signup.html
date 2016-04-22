@@ -24,7 +24,11 @@
           <alert *ngFor="#alert of alerts; #i = index" [type]="alert.type" dismissOnTimeout="3000" dismissible="true" (close)="alerts.splice(i, 1)">
             {{ alert?.msg }}
           </alert>
-          <button type="submit" [disabled]="!signupForm.valid" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Signup</button>
+          <button type="submit" [disabled]="!signupForm.valid || registering" class="btn btn-lg btn-success btn-block">
+            <span class="glyphicon glyphicon-off"></span> 
+            <span *ngIf="!registering">Sign Up</span>
+            <span *ngIf="registering">Loading...</span>
+          </button>
         </form>
       </div>
       <div class="modal-footer">

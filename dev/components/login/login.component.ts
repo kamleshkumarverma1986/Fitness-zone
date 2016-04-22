@@ -19,9 +19,11 @@ export class LoginComponent {
     email: Control;
     password: Control;
     alerts:Array<Object> = [];
+    logging: Boolean;
 
     constructor(private _formBuilder: FormBuilder, private _loginService: LoginService, private _authHelper: AuthHelper) {
     	this.buildLoginForm();
+      this.logging = false;
   	}
 
     buildLoginForm(): void {
@@ -34,6 +36,7 @@ export class LoginComponent {
     }
     
     userLogin(loginData, closeLoginModal): void {
+      this.logging = true;
       this._loginService.userLogin().subscribe( (users) => {
           let result = this._authHelper.isUserExistWhileLogin(users, loginData);
           if( result.isUserExist ) {
@@ -45,6 +48,7 @@ export class LoginComponent {
           } else {
               this.alerts.push({msg: 'Invalid email or password!', type: 'danger', closable: true});
           }
+          this.logging = false;
       });
     }
 	
