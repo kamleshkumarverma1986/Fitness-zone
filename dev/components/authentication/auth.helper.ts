@@ -1,11 +1,12 @@
 import { Injectable } from 'angular2/core';
 import { CONSTANT } from '../../utility/constant';
 import { Http, Headers } from 'angular2/http';
+import { CookieService } from 'angular2-cookie/core';
 
 @Injectable()
 export class AuthHelper {
 
-    constructor(private _http: Http) {}
+    constructor(private _http: Http, private _cookieService: CookieService) {}
 
     getHeader() {
         var headers = new Headers();
@@ -13,8 +14,16 @@ export class AuthHelper {
         return headers;
     }
 
-    isAuthorised() {
-        
+    setAuthorisedUser(loggedInUser) {
+        this._cookieService.putObject("USER_OBJECT", loggedInUser);
+    }
+
+    getAuthorisedUser() {
+        return this._cookieService.getObject("USER_OBJECT");
+    }
+
+    removeAuthorisedUser() {
+        this._cookieService.remove("USER_OBJECT");
     }
 
     isUserExistWhileSignup( userObject ) {
@@ -34,14 +43,15 @@ export class AuthHelper {
     }
 
     isUserExistWhileLogin(users, userObject) {
-      let isUserExist: boolean = false;
+      let result = { isUserExist: false, loggedInUser: {} };
       users.forEach((user: any) => {
           if( user.email === userObject.email && user.password === userObject.password ) {
-            isUserExist = true;
+            result.isUserExist = true;
+            result.loggedInUser = user;
             return;
           }
       });
-      return isUserExist;
+      return result;
     }
 
 }

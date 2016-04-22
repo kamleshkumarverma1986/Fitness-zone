@@ -4,11 +4,11 @@
 	  <!-- Modal content-->
 	  <div class="modal-content">
 	    <div class="modal-header custom-modal-header">
-	      <button type="button" class="close" data-dismiss="modal">&times;</button>
+	      <button type="button" class="close" data-dismiss="modal" #closeLoginModal>&times;</button>
 	      <h4><span class="glyphicon glyphicon-lock"></span> Login</h4>
 	    </div>
 	    <div class="modal-body custom-modal-body">
-	      <form role="form" [ngFormModel]="loginForm" (ngSubmit)="userLogin(loginForm.value)">
+	      <form role="form" [ngFormModel]="loginForm" (ngSubmit)="userLogin(loginForm.value,closeLoginModal)">
 	        <div class="form-group">
 	          <label for="email"><span class="glyphicon glyphicon-user"></span> Email</label>
 	          <input type="email" class="form-control" id="email" placeholder="Enter Email" [ngFormControl]="loginForm.controls['email']" required>

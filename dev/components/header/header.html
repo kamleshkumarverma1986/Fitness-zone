@@ -21,13 +21,22 @@
                     </ul>
                 </li>
             </ul>
-             <ul class="nav navbar-nav pull-right custom-nav-for-login-signup">
+            <ul class="nav navbar-nav pull-right custom-nav-for-login-signup" *ngIf="!loggedInUser">
               <li>
                 <!-- Trigger the login modal with a button -->
                 <button type="button" class="btn" data-toggle="modal" data-target="#loginModal">LOGIN</button>
                 <!-- Trigger the signup modal with a button -->
                 <button type="button" class="btn" data-toggle="modal" data-target="#signupModal">SIGN UP</button>
               </li>
+            </ul>
+            <ul class="nav navbar-nav pull-right" *ngIf="loggedInUser">
+                <li class="dropdown">
+                    <a href="" class="dropdown-toggle" data-toggle="dropdown">Hi {{loggedInUser.name}}<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="" >profile</a></li>
+                        <li><a (click)="userLogout()">Logout</a></li>
+                    </ul>
+                </li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
@@ -36,7 +45,7 @@
 </nav>
 
 <!-- Login Modal -->
-<login></login>
+<login (userLoggedIn)="onUserLoggedIn($event);"></login>
 
 <!-- Signup Modal -->
 <signup></signup>
