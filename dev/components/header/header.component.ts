@@ -4,13 +4,14 @@ import { HeaderService } from '../header/header.service';
 import { CONSTANT } from '../../utility/constant';
 import { LoginComponent } from '../login/login.component';
 import { SignupComponent } from '../signup/signup.component';
+import { BookingComponent } from '../booking/booking.component';
 import { AuthHelper } from '../authentication/auth.helper';
 
 @Component({
     selector: 'header',
     styleUrls: ['../prod/components/header/header.css'],
     templateUrl: '../prod/components/header/header.html',
-    directives : [ ROUTER_DIRECTIVES, LoginComponent, SignupComponent ]
+    directives : [ ROUTER_DIRECTIVES, LoginComponent, SignupComponent, BookingComponent ]
 })
 export class HeaderComponent implements OnInit {
 
@@ -18,7 +19,8 @@ export class HeaderComponent implements OnInit {
 	menus: Array<any>;
     loggedInUser: any;
 
-	constructor(private _headerService : HeaderService, private _authHelper: AuthHelper) {}
+	constructor(private _headerService : HeaderService, private _authHelper: AuthHelper) {
+    }
 
 	ngOnInit(): any {
         this.appName = CONSTANT.APP_NAME;

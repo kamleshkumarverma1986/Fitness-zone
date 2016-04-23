@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <div class="profile">
+        <img align="left" *ngIf="!user.cover_photo" class="image-lg" src="../../assets/img/cover-photo.jpg" alt="Profile image example"/>
+        <img align="left" *ngIf="user.cover_photo" class="image-lg" src="{{user.cover_photo}}" alt="Profile image example"/>
+
+        <img align="left" *ngIf="!user.img_url" class="image-profile thumbnail" src="../../assets/img/profile.jpg" alt="Profile image example"/>
+        <img align="left" *ngIf="user.img_url" class="image-profile thumbnail" src="{{user.img_url}}" alt="Profile image example"/>
+        <div class="profile-text">
+            <h1>{{user.name}}</h1>
+            <p><small>Joined: {{ user.date }}</small></p>
+            <p *ngIf="user.location"><small><i class="fa fa-map-marker"></i>  Lives in {{user.location}}</small></p>
+            <p>{{user.about}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <img class="pull-right" (click)="isUpdateFormShow=!isUpdateFormShow" src="../../assets/img/update_your_profile_button.jpg">
+    </div>
+  </div>
+  <div *ngIf="isUpdateFormShow">
+    <p><small>Note: Currenly we are not supporting photo upload. You have to provide Photo URL</small></p>
+    <div class="row thumbnail profile-update-form">
+      <form role="form" [ngFormModel]="userProfileUpdateForm" (ngSubmit)="updateProfile(userProfileUpdateForm.value)">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+          <input type="text" placeholder="Enter Name *" required="required" class="input pass" [ngFormControl]="userProfileUpdateForm.controls['name']"/>
+          <input type="email" placeholder="Enter Email" readonly class="input pass" [ngFormControl]="userProfileUpdateForm.controls['email']"/>
+          <input type="password" placeholder="Enter Password *" required="required" class="input pass" [ngFormControl]="userProfileUpdateForm.controls['password']"/>
+          <input type="text" placeholder="Write about you" class="input pass" [ngFormControl]="userProfileUpdateForm.controls['about']"/>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+          <input type="text" placeholder="Enter Profile Photo URL" class="input pass" [ngFormControl]="userProfileUpdateForm.controls['img_url']"/>
+          <input type="text" placeholder="Enter Cover Photo URL" class="input pass" [ngFormControl]="userProfileUpdateForm.controls['cover_photo']"/>
+          <input type="text" placeholder="Enter your Location" class="input pass" [ngFormControl]="userProfileUpdateForm.controls['location']"/>
+        </div>
+        <button type="submit" class="btn btn-lg btn-success pull-right">Update Profile</button>
+      </form>
+    </div>
+  </div>
+</div> <!-- /container -->  

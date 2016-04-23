@@ -9,7 +9,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="" [routerLink]="['Home']">{{appName}}</a>
+            <a class="navbar-brand" [routerLink]="['Home']">{{appName}}</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -33,7 +33,8 @@
                 <li class="dropdown">
                     <a href="" class="dropdown-toggle capitalize-username" data-toggle="dropdown">Hi {{loggedInUser.name}}<b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        <li><a href="" >profile</a></li>
+                        <li><a [routerLink]="['Profile']">My Profile</a></li>
+                        <li><a data-toggle="modal" data-target="#bookingModal">Booking History</a></li>
                         <li><a (click)="userLogout()">Logout</a></li>
                     </ul>
                 </li>
@@ -49,3 +50,6 @@
 
 <!-- Signup Modal -->
 <signup></signup>
+
+<!-- Booking Modal -->
+<booking></booking>
