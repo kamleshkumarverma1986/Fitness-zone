@@ -20,7 +20,7 @@
     	<div *ngIf="!events" class="loading"></div>
         <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 portfolio-item" *ngFor="#event of events">
             <a href="">
-                <img class="img-responsive img-size" src="{{event.img_url}}">
+                <img class="img-responsive img-size" src="{{event.img_url}}" [routerLink]="['Detail', { id: event.id, type: location+'_events' }]">
             </a>
             <h4>
                 <a href="">{{event.name}}</a>

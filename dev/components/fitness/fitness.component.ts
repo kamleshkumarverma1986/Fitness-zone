@@ -1,10 +1,11 @@
 import { Component, OnInit } from 'angular2/core';
-import { RouteParams } from 'angular2/router';
+import { RouteParams, ROUTER_DIRECTIVES } from 'angular2/router';
 import { FitnessService } from '../fitness/fitness.service';
 
 @Component({
     templateUrl: '../prod/components/fitness/fitness.html',
     styleUrls: ['../prod/components/fitness/fitness.css'],
+    directives: [ ROUTER_DIRECTIVES ],
     providers: [ FitnessService ]
 })
 export class FitnessComponent implements OnInit {

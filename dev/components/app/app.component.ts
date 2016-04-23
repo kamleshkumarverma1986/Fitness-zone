@@ -7,7 +7,7 @@ import { ProfileComponent } from '../profile/profile.component';
 import { ShopComponent } from '../shop/shop.component';
 import { FitnessComponent } from '../fitness/fitness.component';
 import { EventComponent } from '../event/event.component';
-import { ProductComponent } from '../product/product.component';
+import { DetailComponent } from '../detail/detail.component';
 import { PaymentComponent } from '../payment/payment.component';
 
 @Component({
@@ -22,7 +22,7 @@ import { PaymentComponent } from '../payment/payment.component';
 	{ path:'/shop/:category' ,name: 'Shop' ,component: ShopComponent },
 	{ path:'/fitness/:type' ,name: 'Fitness' ,component: FitnessComponent },
 	{ path:'/event/:location' ,name: 'Event' ,component: EventComponent },
-	{ path:'/product/:id' ,name: 'Product' ,component: ProductComponent },
+	{ path:'/detail/:type/:id' ,name: 'Detail' ,component: DetailComponent },
 	{ path:'/payment' ,name: 'Payment' ,component: PaymentComponent }
 ])
 export class AppComponent {

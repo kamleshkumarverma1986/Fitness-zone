@@ -26,7 +26,7 @@
 			    <div *ngIf="!products" class="loading"></div>
 			    <div class="item col-xs-12 col-sm-6 col-md-4 col-lg-4" *ngFor="#product of products">
 			        <div class="thumbnail">
-			            <a href="" [routerLink]="['Product', { id: product.id }]">
+			            <a href="" [routerLink]="['Detail', { id: product.id, type: 'products' }]">
 			                <img class="img-responsive img-size" src="{{product.img_url}}"/>
 			            </a>
 			            <div class="caption">

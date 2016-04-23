@@ -56,7 +56,7 @@
             <div class="row fitness-center-detail" *ngFor="#center of fitnessCenters">
                 <div class="col-xs-6 col-sm-4 col-md-6 col-lg-6">
                     <a href="">
-                        <img class="img-responsive img-size" src="{{center.img_url}}">
+                        <img class="img-responsive img-size" src="{{center.img_url}}" [routerLink]="['Detail', { id: center.id, type: type }]">
                     </a>
                 </div>
                 <div class="col-xs-6 col-sm-8 col-md-6 col-lg-6">

@@ -1,0 +1,77 @@
+<!-- Page Content -->
+<div class="container">
+    <div *ngIf="!relevantData" class="loading"></div>
+    <div *ngIf="relevantData" class="row">
+        <div class="col-md-offset-1 col-md-10">
+            <div class="thumbnail relevant-data-detail">
+                <div class="row">
+                    <div class="col-xm-12 col-sm-12 col-md-6 col-lg-6">
+                        <img class="img-responsive" src="{{relevantData.img_url}}">
+                    </div>
+                    <div class="col-xm-12 col-sm-12 col-md-6 col-lg-6">
+                        <div class="caption-full">
+                            <h3><label>{{relevantData.name}}</label></h3>
+                        </div>
+                        <div class="ratings">
+                            <p class="pull-right">3 reviews</p>
+                            <p>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star-empty"></span>
+                                4.0 stars
+                            </p>
+                        </div>
+                        <div *ngIf="relevantData.desc" class="relevant-data-desc">
+                            {{relevantData.desc}}
+                        </div>
+                        <div *ngIf="relevantData.location" class="relevant-data-desc">
+                            <i class="fa fa-map-marker"></i>  {{relevantData.location}}
+                        </div>
+                        <div *ngIf="relevantData.timing" class="relevant-data-desc">
+                            <i class="fa fa-clock-o"></i>  {{relevantData.timing}}
+                        </div>
+                        <div class="relevant-data-price">
+                            Rs. {{relevantData.price}}
+                        </div>
+                        <div class="add-to-cart-button">
+                            <button class="btn btn-success">Add to Cart / Booking</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xm-12 col-sm-12 col-md-12 col-lg-12">
+                        <img *ngIf="type === 'products'" class="img-responsive" src="../../assets/img/genuine-products.jpg">
+                        <h1 *ngIf="type !== 'products' && type.split('_')[1] !== 'events' ">
+                            <i *ngIf="relevantData.ac" class="fa fa-archive padding" title="AC"></i>
+                            <i *ngIf="relevantData.juice_bar" class="fa fa-glass padding" title="Juice Bar"></i>
+                            <i *ngIf="relevantData.personal_trainer" class="fa fa-user padding" title="Personal Trainer"></i>
+                            <i *ngIf="relevantData.locker" class="fa fa-lock padding" title="Locker"></i>
+                            <i *ngIf="relevantData.shower" class="fa fa-soundcloud padding" title="Shower"></i>
+                            <i *ngIf="relevantData.changing_room" class="fa fa-home padding" title="Changing Room"></i>
+                            <i *ngIf="relevantData.parking" class="fa fa-car padding" title="Parking"></i>
+                            <i *ngIf="relevantData.wifi" class="fa fa-wifi padding" title="WiFi"></i>
+                        </h1>
+                    </div>
+                </div>
+            </div>
+
+            <div class="well review-area">
+                <div class="text-right">
+                    <button class="btn btn-success" (click)="IsShowReview=!IsShowReview">Leave a Review</button>
+                </div>
+                <div *ngIf="IsShowReview" class="well comment-area">
+                    <h4>Leave a Comment:</h4>
+                    <form role="form">
+                        <div class="form-group">
+                            <textarea rows="3" class="form-control" placeholder="Post your Comment Here" required></textarea>
+                        </div>
+                        <button class="btn btn-primary" type="submit">POST</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.container -->
