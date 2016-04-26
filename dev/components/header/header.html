@@ -21,6 +21,12 @@
                     </ul>
                 </li>
             </ul>
+            <ul class="nav navbar-nav pull-right custom-nav-for-login-signup">
+              <li>
+                <!-- Trigger the cart modal with a img tag -->
+                <img class="img-responsive pull-right cart-in-header" src="../../assets/img/cart.png" data-toggle="modal" data-target="#cartModal">
+              </li>
+            </ul>
             <ul class="nav navbar-nav pull-right custom-nav-for-login-signup" *ngIf="!loggedInUser">
               <li>
                 <!-- Trigger the login modal with a button -->
@@ -44,6 +50,9 @@
     </div>
     <!-- /.container -->
 </nav>
+
+<!-- Cart Modal -->
+<cart></cart>
 
 <!-- Login Modal -->
 <login (userLoggedIn)="onUserLoggedIn($event);"></login>

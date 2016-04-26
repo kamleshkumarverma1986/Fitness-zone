@@ -2,6 +2,14 @@
 <div class="container">
 
     <div class="row">
+        <div class="col-md-offset-3 col-md-9">
+          <alert *ngFor="#alert of alerts; #i = index" [type]="alert.type" dismissOnTimeout="3000" dismissible="true" (close)="alerts.splice(i, 1)">
+            {{ alert?.msg }}
+          </alert>
+        </div>
+    </div>
+
+    <div class="row">
         <div class="col-md-offset-3 col-md-5">
             <h1 class="page-header pull-left">{{type.split('_').join(' ')}}
                 <small>Secondary Text</small>
@@ -77,8 +85,9 @@
                         </div>
                     </div>
                     <div>
-                        <p><small>Average Price: Rs. {{center.price}}</small><p>
-                        <p><small><i class="fa fa-clock-o"></i>  {{center.timing}}</small><p>
+                        <p><small>Average Price: Rs. {{center.price}}</small></p>
+                        <p><small><i class="fa fa-clock-o"></i>  {{center.timing}}</small></p>
+                        <a class="btn btn-success" (click)="centerBooking(center)">BOOKING</a>
                     </div>
                 </div>
             </div>

@@ -22,3 +22,13 @@ input {
 button {
 	border-radius: 0px! important;
 }
+
+alert {
+	position: fixed;
+    z-index: 9999;
+}
+
+.alert {
+	border-radius: 20px;
+    padding: 8px;
+}

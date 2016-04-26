@@ -14,7 +14,7 @@ import { PaymentComponent } from '../payment/payment.component';
     selector: 'my-app',
     templateUrl: '../prod/components/app/app.html',
     styleUrls: ['../prod/components/app/app.css'],
-    directives: [ROUTER_DIRECTIVES,HeaderComponent,FooterComponent]
+    directives: [ ROUTER_DIRECTIVES, HeaderComponent, FooterComponent ]
 })
 @RouteConfig([
 	{ path:'/' ,name: 'Home' ,component: HomeComponent ,useAsDefault: true },

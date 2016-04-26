@@ -13,7 +13,7 @@ export class DetailService {
 	    return headers;
 	}
 
-	getRelevantData(id,type) {
+	getItem(id,type) {
 		return this._http.get(CONSTANT.BASE_URL+type+'/'+id,{headers: this.getHeader()}).map( res=> res.json() );
 	}
 

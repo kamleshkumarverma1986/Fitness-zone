@@ -21,9 +21,13 @@
             <label for="password"><span class="glyphicon glyphicon-eye-open"></span> Password </label>
             <input type="password" class="form-control" id="password" placeholder="Enter Password" [ngFormControl]="signupForm.controls['password']" required>
           </div>
-          <alert *ngFor="#alert of alerts; #i = index" [type]="alert.type" dismissOnTimeout="3000" dismissible="true" (close)="alerts.splice(i, 1)">
-            {{ alert?.msg }}
-          </alert>
+          <div class="row">
+            <div class="col-md-offset-3 col-md-9">
+              <alert *ngFor="#alert of alerts; #i = index" [type]="alert.type" dismissOnTimeout="3000" dismissible="true" (close)="alerts.splice(i, 1)">
+                {{ alert?.msg }}
+              </alert>
+            </div>
+          </div>
           <button type="submit" [disabled]="!signupForm.valid || registering" class="btn btn-lg btn-success btn-block">
             <span class="glyphicon glyphicon-off"></span> 
             <span *ngIf="!registering">Sign Up</span>

@@ -1,0 +1,69 @@
+<!-- Modal -->
+<div class="modal fade" id="cartModal" role="dialog">
+	<div class="modal-dialog modal-lg">
+
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<img src="../../assets/img/person-with-a-shopping-trolley-and-small-house.jpg" class="img-responsive img-size">
+			</div>
+			<div class="modal-body">
+				<!-- Start Code for Cart -->
+				<div class="empty-cart" *ngIf="items.length === 0">
+					<div class="empty-cart-header">
+						<center>Shopping Cart is empty!</center>
+					</div>
+					<div class="start-shopping-now-button">
+						<button class="btn btn-success btn-block" data-dismiss="modal">START SHOPPING NOW</button>
+					</div>
+				</div>
+				<table id="cart" class="table table-hover table-condensed" *ngIf="items.length > 0">
+					<thead>
+						<tr>
+							<th style="width:30%">Product</th>
+							<th style="width:10%">Price</th>
+							<th style="width:8%">Quantity</th>
+							<th style="width:22%" class="text-center">Subtotal</th>
+							<th style="width:10%"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr *ngFor="#item of items">
+							<td data-th="Product">
+								<div class="row">
+									<div class="col-sm-2 hidden-xs"><img src="{{item.img_url}}" alt="..." class="img-responsive"/></div>
+									<div class="col-sm-10">
+										<h4 class="nomargin">{{item.name}}</h4>
+									</div>
+								</div>
+							</td>
+							<td data-th="Price">{{item.price}}</td>
+							<td data-th="Quantity">
+								<small *ngIf="!item.quantity">N/A</small>
+								<input *ngIf="item.quantity" type="number" name="item-quantity" class="form-control text-center" min="1"  step="1" [(ngModel)]="item.quantity">
+							</td>
+							<td *ngIf="!item.quantity" data-th="Subtotal" class="text-center">{{item.price}}</td>
+							<td *ngIf="item.quantity" data-th="Subtotal" class="text-center">{{item.price*item.quantity}}</td>
+							<td class="actions" data-th="">
+								<button class="btn btn-danger btn-sm" (click)="deleteItem(item.id)"><i class="fa fa-trash-o"></i></button>								
+							</td>
+						</tr>
+					</tbody>
+					<tfoot>
+						
+						<tr>
+							<td><a href="" class="btn btn-warning" data-dismiss="modal"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
+							<td colspan="2" class="hidden-xs"></td>
+							<td class="hidden-xs text-center"><strong>Total {{subTotal}}</strong></td>
+							<td><a href="" (click)="goForCheckout()" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
+						</tr>
+					</tfoot>
+				</table>
+
+				<!-- End Code for Cart -->
+			</div>
+		</div>
+
+	</div>
+</div>
