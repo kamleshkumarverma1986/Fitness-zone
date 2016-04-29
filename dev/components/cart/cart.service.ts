@@ -22,7 +22,7 @@ export class CartService {
 	    if(isItemExistInCart) {
 	    	return { "status": "danger", "msg": "Item is already added into Cart!" };
 	    }else {
-	    	this.items.push(addedItem);
+	    	this.items.unshift(addedItem);
 	    	this.updateItemChange.emit(this.items);
 	    	this.updateSubTotal();
 			return { "status": "success", "msg": "Item is added into Cart!" };
@@ -50,6 +50,5 @@ export class CartService {
 		this.updateItemChange.emit(this.items);
 		this.updateSubTotal();
 	}
-
 
 }

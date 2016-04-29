@@ -23,7 +23,7 @@ export class BookingComponent implements OnInit {
 
 	getBookingHistory(user) {
 		this._bookingService.getBookingHistory(user).subscribe( (booking_history) => {
-	        this.bookingHistory = booking_history;
+	        this.bookingHistory = booking_history.reverse();
 	    });
 	}
 	
