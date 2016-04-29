@@ -10,7 +10,7 @@ import { AuthHelper } from '../authentication/auth.helper';
 export class BookingComponent implements OnInit {
 	
 	loggedInUser: any;
-	bookingHistory: any;
+	bookingHistory: any = [];
 
 	constructor(private _bookingService: BookingService, private _authHelper: AuthHelper) {
 

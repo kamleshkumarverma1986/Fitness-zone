@@ -1,10 +1,13 @@
 <div class="container">
+    <div *ngIf="bookingHistory.length === 0">
+        <h1><label>You haven't ordered anything yet!</label></h1>
+    </div>
     <div *ngFor="#order of bookingHistory">
         <div class="row">
             <div class="col-xs-12">
                 <div class="text-center">
                     <i class="fa fa-search-plus pull-left icon"></i>
-                    <h2>Invoice for purchase date #{{order.date}}</h2>
+                    <h2>Invoice for purchase Date : {{order.date | date }}</h2>
                 </div>
                 <hr>
                 <div class="row">

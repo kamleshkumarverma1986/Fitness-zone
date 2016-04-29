@@ -3,14 +3,18 @@ import { ControlGroup, FormBuilder, Control, Validators } from 'angular2/common'
 import { PaymentService } from '../payment/payment.service';
 import { AuthHelper } from '../authentication/auth.helper';
 import { CartService } from '../cart/cart.service';
+import { ROUTER_DIRECTIVES } from 'angular2/router';
 
 @Component({
     templateUrl: '../prod/components/payment/payment.html',
     styleUrls: ['../prod/components/payment/payment.css'],
+    directives : [ ROUTER_DIRECTIVES ],
     providers: [ PaymentService ]
 })
 export class PaymentComponent implements OnInit {
 
+  items: Array<any> = [];
+  subTotal: number = 0;
 	shippingAddress: string; 
 	shippingAddressForm: ControlGroup;
   pincode: Control;
@@ -26,6 +30,7 @@ export class PaymentComponent implements OnInit {
 	constructor(private _formBuilder: FormBuilder, private _paymentService: PaymentService, private _authHelper: AuthHelper, private _cartService: CartService) {
 		this.buildShippingAddressForm();
     this._authHelper.authorisedUserChange.subscribe(user => this.loggedInUser = user);
+    this._cartService.subTotalChange.subscribe(subTotal => this.subTotal = subTotal);
   }
 
 	buildShippingAddressForm(): void {
@@ -49,6 +54,16 @@ export class PaymentComponent implements OnInit {
 
 	ngOnInit(): any {
      	this.loggedInUser = this._authHelper.getAuthorisedUser();
+      this.items = this._cartService.getItems();
+      this.subTotal = this._cartService.subTotal;
+  }
+
+  addItem(item: any): any {
+    return this._cartService.addItem(item);
+  }
+
+  deleteItem(id) {
+    this._cartService.deleteItem(id);
   }
 
 	goToNextStep() {
@@ -73,7 +88,7 @@ export class PaymentComponent implements OnInit {
 		orderedData.shipping_address = this.shippingAddress;
 		this._paymentService.makePayment(JSON.stringify(orderedData)).subscribe( (data) => {
         this.buildShippingAddressForm();
-        alert("done");
+        alert("Thank you for shopping");
     });
 	}
 	

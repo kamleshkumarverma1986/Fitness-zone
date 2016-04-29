@@ -6,6 +6,7 @@ export class CartService {
 	public items: Array<any> = [];
 	public subTotal: number = 0;
 	public subTotalChange: EventEmitter<number> = new EventEmitter();
+	public updateItemChange: EventEmitter<Array<any>> = new EventEmitter();
 
 	getItems() {
 		return this.items;
@@ -22,6 +23,7 @@ export class CartService {
 	    	return { "status": "danger", "msg": "Item is already added into Cart!" };
 	    }else {
 	    	this.items.push(addedItem);
+	    	this.updateItemChange.emit(this.items);
 	    	this.updateSubTotal();
 			return { "status": "success", "msg": "Item is added into Cart!" };
 	    }
@@ -45,6 +47,7 @@ export class CartService {
 		    object.splice(index, 1);
 		  }
 		});
+		this.updateItemChange.emit(this.items);
 		this.updateSubTotal();
 	}
 

@@ -9,7 +9,7 @@
         <img align="left" *ngIf="user.img_url" class="image-profile thumbnail" src="{{user.img_url}}" alt="Profile image example"/>
         <div class="profile-text">
             <h1>{{user.name}}</h1>
-            <p><small>Joined: {{ user.date }}</small></p>
+            <p><small>Joined: {{ user.date | date }}</small></p>
             <p *ngIf="user.location"><small><i class="fa fa-map-marker"></i>  Lives in {{user.location}}</small></p>
             <p>{{user.about}}</p>
         </div>

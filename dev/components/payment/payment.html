@@ -89,17 +89,68 @@
 				<p><small>Confirm/Edit your Orders</small></p>
 				<div class="main-content">
 					<div class="main-content-for-cart">
-						<center>
-							<label>Open you cart for Confirm/Edit</label>
-                    		<img class="img-responsive" src="../../assets/img/cart.png" data-toggle="modal" data-target="#cartModal">
-						</center>
+						<!-- Start Code for Cart -->
+						<div class="empty-cart" *ngIf="items.length === 0">
+							<div class="empty-cart-header">
+								<center>Shopping Cart is empty!, You can't go for payment!</center>
+							</div>
+							<div class="start-shopping-now-button">
+								<button class="btn btn-success btn-block" [routerLink]="['Home']">START SHOPPING NOW</button>
+							</div>
+						</div>
+						<table id="cart" class="table table-hover table-condensed" *ngIf="items.length > 0">
+							<thead>
+								<tr>
+									<th style="width:30%">Product</th>
+									<th style="width:10%">Price</th>
+									<th style="width:8%">Quantity</th>
+									<th style="width:20%" class="text-center">Subtotal</th>
+									<th style="width:10%"></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr *ngFor="#item of items">
+									<td data-th="Product">
+										<div class="row">
+											<div class="col-sm-4 col-md-4 hidden-xs"><img src="{{item.img_url}}" alt="..." class="img-responsive"/></div>
+											<div class="col-sm-8 col-md-8">
+												<h4 class="nomargin">{{item.name}}</h4>
+											</div>
+										</div>
+									</td>
+									<td data-th="Price">{{item.price}}</td>
+									<td data-th="Quantity">
+										<small *ngIf="!item.quantity">N/A</small>
+										<input *ngIf="item.quantity" type="number" name="item-quantity" class="form-control text-center" min="1"  step="1" [(ngModel)]="item.quantity">
+									</td>
+									<td *ngIf="!item.quantity" data-th="Subtotal" class="text-center">{{item.price}}</td>
+									<td *ngIf="item.quantity" data-th="Subtotal" class="text-center">{{item.price*item.quantity}}</td>
+									<td class="actions" data-th="">
+										<button class="btn btn-danger btn-sm" (click)="deleteItem(item.id)"><i class="fa fa-trash-o"></i></button>								
+									</td>
+								</tr>
+							</tbody>
+							<tfoot>
+								<tr>
+									<td>
+									</td>
+									<td colspan="2" class="hidden-xs"></td>
+									<td class="hidden-xs text-center">
+										<strong>Total {{subTotal}}</strong>
+									</td>
+									<td>
+									</td>
+								</tr>
+							</tfoot>
+						</table>
+						<!-- End Code for Cart -->
 					</div>
                     <div class="row">
 				    	<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 				    		<button class="btn btn-lg btn-success pull-left" (click)="goToBack()">BACK</button>
 				    	</div>
 				    	<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-				    		<button class="btn btn-lg btn-success pull-right" (click)="goToNextStep()">PROCEED TO PAYMENT</button>
+				    		<button class="btn btn-lg btn-success pull-right" [disabled]="items.length === 0" (click)="goToNextStep()">PROCEED TO PAYMENT</button>
 				    	</div>
 				    </div>
 				</div>

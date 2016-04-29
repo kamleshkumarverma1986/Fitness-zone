@@ -1,6 +1,6 @@
 import { Component, OnInit } from 'angular2/core';
 import { CartService } from '../cart/cart.service';
-import { ROUTER_DIRECTIVES, Router } from 'angular2/router';
+import { ROUTER_DIRECTIVES } from 'angular2/router';
 
 @Component({
 	selector: 'cart',
@@ -12,10 +12,8 @@ export class CartComponent implements OnInit {
 	
 	items: Array<any> = [];
     subTotal: number = 0;
-    currentURL: string;
     
-    constructor(private _cartService: CartService, router: Router) {
-        router.subscribe((url) => this.currentURL = url );
+    constructor(private _cartService: CartService) {
         this._cartService.subTotalChange.subscribe(subTotal => this.subTotal = subTotal);
   	}
 

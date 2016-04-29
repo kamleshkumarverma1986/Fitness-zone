@@ -25,7 +25,10 @@
                 <ul class="nav navbar-nav pull-right custom-nav-for-login-signup">
                   <li>
                     <!-- Trigger the cart modal with a img tag -->
-                    <img class="img-responsive pull-right cart-in-header" src="../../assets/img/cart.png" data-toggle="modal" data-target="#cartModal">
+                    <img class="img-responsive cart-in-header" src="../../assets/img/cart.png" data-toggle="modal" data-target="#cartModal">
+                  </li>
+                  <li *ngIf="cartItemsCount>0">
+                    <div class="numberCircle">{{cartItemsCount}}</div>
                   </li>
                 </ul>
                 <ul class="nav navbar-nav pull-right custom-nav-for-login-signup" *ngIf="!loggedInUser">
