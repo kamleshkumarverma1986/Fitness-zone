@@ -1,10 +1,12 @@
-import { Injectable } from 'angular2/core';
+import { Injectable, EventEmitter } from 'angular2/core';
 import { CONSTANT } from '../../utility/constant';
 import { Http, Headers } from 'angular2/http';
 import { CookieService } from 'angular2-cookie/core';
 
 @Injectable()
 export class AuthHelper {
+
+    public authorisedUserChange: EventEmitter<any> = new EventEmitter();
 
     constructor(private _http: Http, private _cookieService: CookieService) {}
 
@@ -24,6 +26,7 @@ export class AuthHelper {
 
     removeAuthorisedUser() {
         this._cookieService.remove("USER_OBJECT");
+        this.authorisedUserChange.emit(null);
     }
 
     isUserExistWhileSignup( userObject ) {
@@ -48,6 +51,7 @@ export class AuthHelper {
           if( user.email === userObject.email && user.password === userObject.password ) {
             result.isUserExist = true;
             result.loggedInUser = user;
+            this.authorisedUserChange.emit(user);
             return;
           }
       });

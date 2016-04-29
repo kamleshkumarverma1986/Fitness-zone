@@ -1,18 +1,22 @@
 import { Component, OnInit } from 'angular2/core';
 import { CartService } from '../cart/cart.service';
+import { ROUTER_DIRECTIVES, Router } from 'angular2/router';
 
 @Component({
 	selector: 'cart',
     templateUrl: '../prod/components/cart/cart.html',
-    styleUrls: ['../prod/components/cart/cart.css']
+    styleUrls: ['../prod/components/cart/cart.css'],
+    directives : [ ROUTER_DIRECTIVES ]
 })
 export class CartComponent implements OnInit {
 	
 	items: Array<any> = [];
     subTotal: number = 0;
-
-    constructor(private _cartService: CartService) {
-        this.subTotal = this._cartService.subTotalChange.subscribe(subTotal => this.subTotal = subTotal);
+    currentURL: string;
+    
+    constructor(private _cartService: CartService, router: Router) {
+        router.subscribe((url) => this.currentURL = url );
+        this._cartService.subTotalChange.subscribe(subTotal => this.subTotal = subTotal);
   	}
 
   	ngOnInit(): any {
@@ -27,7 +31,4 @@ export class CartComponent implements OnInit {
     	this._cartService.deleteItem(id);
     }
 
-    goForCheckout() {
-
-    }
 }

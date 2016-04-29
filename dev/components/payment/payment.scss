@@ -1,0 +1,219 @@
+.custom-thumbnail-style {
+  padding: 15px;
+}
+
+.main-content {
+  padding: 60px;
+}
+
+.main-content-for-cart {
+  margin-bottom:40px;
+  margin-top:-1px;
+  padding:30px;
+}
+
+/*Standard CSS */
+.demo-header {
+  color: #333;
+  font-family: "Varela Round", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.42857143;
+}
+
+.demo-header a {
+  color: #428bca;
+  text-decoration: none;
+}
+
+.demo-header a:hover {
+  text-decoration: underline;
+}
+
+.demo-header {
+  border-bottom: 1px solid #f1f1f1;
+  background: #717B85;
+  margin: 0 auto 50px;
+  text-align: center;
+  text-transform: none;
+}
+
+.demo-header.no-bottom {
+  margin-bottom: 0;
+}
+
+.demo-header h1 {
+  color: #fff;
+  font-size: 20px;
+  font-weight: normal;
+  line-height: 1.1;
+  margin: 0 auto;
+  padding: 20px 10px;
+  max-width: 600px;
+  text-align: center;
+  text-transform: none;
+}
+
+.demo-header h1 small {
+  color: #f0f0f0;
+  font-size: .8em;
+  font-weight: 400;
+  line-height: 1;
+  display: none;
+}
+
+
+/* --- VARS --- */
+/* --- MIXINS --- */
+/* --- DEMO CONTENT--- */
+
+
+.navbar-menu {
+  border: 0;
+  border-radius: 0;
+}
+
+.navbar-menu .navbar-collapse {
+  padding: 0;
+  border-top: 0;
+}
+
+.navbar-main {
+  margin: 0;
+}
+
+.navbar-menu {
+  background-color: #472986;
+}
+
+.navbar-menu .navbar-header {
+  padding: 7px;
+}
+
+.navbar-main > li > a {
+  font-size: 20px;
+  font-weight: 900;
+  color: #ffcc00;
+  text-transform: uppercase;
+  -webkit-transition: 0.2s color ease-in-out;
+  transition: 0.2s color ease-in-out;
+  -webkit-transition: 0.2s background ease-in-out;
+  transition: 0.2s background ease-in-out;
+}
+
+.navbar-main > li > a small {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 300;
+  text-transform: none;
+}
+
+.navbar-main > li > a:hover,
+.navbar-main > li > a:focus,
+.navbar-main > li > a.active {
+  background-color: #ffcc00;
+  color: #321d5f;
+}
+
+.navbar-main > li > a:hover small,
+.navbar-main > li > a:focus small,
+.navbar-main > li > a.active small {
+  color: #000;
+}
+
+@media (min-width: 768px) {
+
+  .navbar-main-container {
+    background-color: #472986;
+    background-repeat: repeat-x;
+    background-image: -webkit-gradient(linear, 50% top, 50% top, from(#472986), to(#321d5f));
+    background-image: -webkit-linear-gradient(left, color-stop(#472986 50%), color-stop(#321d5f 50%));
+    background-image: -moz-linear-gradient(left, #472986 50%, #321d5f 50%);
+    background-image: linear-gradient(to right, #472986 50%, #321d5f 50%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#472986', endColorstr='#321d5f', GradientType=1);
+    /* IE6-9 */
+  }
+
+  .navbar-main-container .navbar-nav {
+    float: none;
+  }
+
+  .navbar-main {
+    margin: 0 auto;
+    padding-right: 40px;
+    max-width: 730px;
+  }
+
+  .navbar-main li {
+    display: inline-block;
+    height: 80px;
+    position: relative;
+    width: 33.3%;
+    background-color: #321d5f;
+    background-repeat: repeat-x;
+    background-image: -webkit-gradient(linear, 0% top, 100% top, from(#321d5f), to(#472986));
+    background-image: -webkit-linear-gradient(left, color-stop(#321d5f 0%), color-stop(#472986 100%));
+    background-image: -moz-linear-gradient(left, #321d5f 0%, #472986 100%);
+    background-image: linear-gradient(to right, #321d5f 0%, #472986 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#321d5f', endColorstr='#472986', GradientType=1);
+    /* IE6-9 */
+  }
+
+  .navbar-main li:first-child:before {
+    border: 40px solid transparent;
+    border-left-color: #472986;
+    border-right: 0;
+    content: " ";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0px;
+    width: 0px;
+    z-index: 10;
+  }
+
+  .navbar-main li a {
+    display: table;
+    height: 100%;
+    padding: 0 0 0 66.66666667px;
+    position: relative;
+    width: 100%;
+  }
+
+  .navbar-main li a:after {
+    border: 40px solid transparent;
+    border-left-color: #472986;
+    border-right: 0;
+    content: " ";
+    display: block;
+    position: absolute;
+    right: -40px;
+    top: 0px;
+    width: 0px;
+    z-index: 10;
+    -webkit-transition: 0.2s border-color ease-in-out;
+    transition: 0.2s border-color ease-in-out;
+  }
+
+  .navbar-main li a:hover:after,
+  .navbar-main li a.active:after {
+    border-left-color: #ffcc00;
+  }
+
+  .navbar-main li a span {
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+}
+
+@media (min-width: 992px) {
+
+  .navbar-main {
+    max-width: 980px;
+  }
+
+  .navbar-main li a {
+    padding: 0 0 0 80px;
+  }
+
+}

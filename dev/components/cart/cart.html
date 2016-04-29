@@ -1,7 +1,6 @@
 <!-- Modal -->
 <div class="modal fade" id="cartModal" role="dialog">
 	<div class="modal-dialog modal-lg">
-
 		<!-- Modal content-->
 		<div class="modal-content">
 			<div class="modal-header">
@@ -51,19 +50,23 @@
 						</tr>
 					</tbody>
 					<tfoot>
-						
 						<tr>
-							<td><a href="" class="btn btn-warning" data-dismiss="modal"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
+							<td>
+								<a href="" *ngIf="currentURL !== 'payment'" class="btn btn-warning" data-dismiss="modal"><i class="fa fa-angle-left"></i> Continue Shopping</a>
+							</td>
 							<td colspan="2" class="hidden-xs"></td>
-							<td class="hidden-xs text-center"><strong>Total {{subTotal}}</strong></td>
-							<td><a href="" (click)="goForCheckout()" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
+							<td class="hidden-xs text-center">
+								<strong>Total {{subTotal}}</strong>
+							</td>
+							<td>
+								<a href="" *ngIf="currentURL !== 'payment'" data-dismiss="modal" [routerLink]="['Payment']" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a>
+								<a href="" *ngIf="currentURL === 'payment'" data-dismiss="modal" class="btn btn-success btn-block">OK</a>
+							</td>
 						</tr>
 					</tfoot>
 				</table>
-
 				<!-- End Code for Cart -->
 			</div>
 		</div>
-
 	</div>
 </div>

@@ -1,7 +1,136 @@
-<div class="inner cover">
-    <h1 class="cover-heading">event page.</h1>
-    <p class="lead">Home is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
-    <p class="lead">
-      <a href="http://github.com/kamleshKumarVerma/" class="btn btn-lg btn-default">Learn more</a>
-    </p>
-</div>
+<!-- Demo -->
+<nav class="navbar" role="navigation">
+	<!-- Collect the nav links, forms, and other content for toggling -->
+  	<div class="navbar-main-container">
+	    <ul class="nav navbar-nav navbar-main" id="main-nav">
+	    	<li>
+	    		<a [ngClass]="{ 'active': step === 1 }"><span>Log In<br/><small *ngIf="loggedInUser">{{loggedInUser.email}}</small><small *ngIf="!loggedInUser">Login / Register</small></span>
+	    		</a>
+	    	</li>
+	    	<li>
+	    		<a [ngClass]="{ 'active': step === 2 }"><span>Confirm Address<br/><small>We will deliver your order here</small></span>
+	    		</a>
+	    	</li>
+	    	<li>
+	    		<a [ngClass]="{ 'active': step === 3 }"><span>Review Order<br/><small>Confirm your orders</small></span></a>
+	    	</li>
+	    </ul>
+	</div>
+</nav>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-offset-2 col-md-8">
+    	<div class="thumbnail custom-thumbnail-style">
+    		<div *ngIf="step === 1">
+    			<h1><label>Log In / Register</label></h1>
+				<p><small>We will send order details to this email address</small></p>
+				<div class="main-content">
+					<div *ngIf="loggedInUser">
+						<p>{{loggedInUser.email}}</p>
+						<button class="btn btn-lg btn-success" (click)="goToNextStep()">Continue</button>
+					</div>
+					<div *ngIf="!loggedInUser">
+						<!-- Trigger the login modal with a button -->
+	                    <button type="button" class="btn" data-toggle="modal" data-target="#loginModal">LOGIN</button>
+					</div>
+				</div>
+    		</div>
+    		<div *ngIf="step === 2">
+    			<h1><label>Confirm Address</label></h1>
+				<p><small>We will send order details to this address</small></p>
+				<div class="main-content">
+					<div class="row">
+						<div class="col-md-offset-2 col-md-8">
+							<form role="form" [ngFormModel]="shippingAddressForm" (ngSubmit)="saveShippingAddress(shippingAddressForm.value)">
+							    <div class="form-group">
+							      <label for="pincode">Pincode:</label>
+							      <input type="text" class="form-control" id="pincode" placeholder="Pincode" [ngFormControl]="shippingAddressForm.controls['pincode']">
+							    </div>
+							    <div class="form-group">
+							      <label for="name">Name:</label>
+							      <input type="text" class="form-control" id="name" placeholder="Full Name" [ngFormControl]="shippingAddressForm.controls['name']">
+							    </div>
+							    <div class="form-group">
+							      <label for="address">Address:</label>
+							      <textarea rows="3" class="form-control" id="address" placeholder="Enter Address" [ngFormControl]="shippingAddressForm.controls['address']"></textarea>
+							    </div>
+							    <div class="form-group">
+							      <label for="landmark">Landmark:</label>
+							      <input type="text" class="form-control" id="landmark" placeholder="Landmark" [ngFormControl]="shippingAddressForm.controls['landmark']">
+							    </div>
+							    <div class="form-group">
+							      <label for="city">City:</label>
+							      <input type="text" class="form-control" id="city" placeholder="City" [ngFormControl]="shippingAddressForm.controls['city']">
+							    </div>
+							    <div class="form-group">
+							      <label for="state">State:</label>
+							      <input type="text" class="form-control" id="state" placeholder="State" [ngFormControl]="shippingAddressForm.controls['state']">
+							    </div>
+							    <div class="form-group">
+							      <label for="mobile_number">Mobile Number:</label>
+							      <input type="text" class="form-control" id="mobile_number" placeholder="Mobile Number" [ngFormControl]="shippingAddressForm.controls['mobileNumber']">
+							    </div>
+							    <div class="row">
+							    	<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+							    		<a class="btn btn-lg btn-success" (click)="goToBack()">BACK</a>
+							    	</div>
+							    	<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+							    		<button type="submit" [disabled]="!shippingAddressForm.valid" class="btn btn-lg btn-success">SAVE AND CONTINUE</button>
+							    	</div>
+							    </div>
+							</form>
+						</div>
+					</div>
+				</div>
+    		</div>
+    		<div *ngIf="step === 3">
+    			<h1><label>Review Orders</label></h1>
+				<p><small>Confirm/Edit your Orders</small></p>
+				<div class="main-content">
+					<div class="main-content-for-cart">
+						<center>
+							<label>Open you cart for Confirm/Edit</label>
+                    		<img class="img-responsive" src="../../assets/img/cart.png" data-toggle="modal" data-target="#cartModal">
+						</center>
+					</div>
+                    <div class="row">
+				    	<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+				    		<button class="btn btn-lg btn-success pull-left" (click)="goToBack()">BACK</button>
+				    	</div>
+				    	<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+				    		<button class="btn btn-lg btn-success pull-right" (click)="goToNextStep()">PROCEED TO PAYMENT</button>
+				    	</div>
+				    </div>
+				</div>
+    		</div>
+    		<div *ngIf="step === 4">
+    			<h1><label>Make Payment</label></h1>
+				<p><small>Confirm your Payment</small></p>
+				<div class="main-content">
+					<div class="main-content-for-cart">
+						<center>
+                    		<p>NOTE: Currently we don't have any Bank Card payment option.</p>
+                    		<p> You can have Cash On delivery / Pay at the time of Event.</p> 
+						</center>
+					</div>
+					<div class="main-content-for-cart">
+						<center>
+                    		<p>Thank You for Shopping</p>
+                    		<p><small>Happy shopping day!</small></p>
+						</center>
+					</div>
+                    <div class="row">
+				    	<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+				    		<button class="btn btn-lg btn-success pull-left" (click)="goToBack()">BACK</button>
+				    	</div>
+				    	<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+				    		<button class="btn btn-lg btn-success pull-right" (click)="makePayment()">MAKE PAYMENT</button>
+				    	</div>
+				    </div>
+				</div>
+    		</div>
+    	</div>
+    </div>
+  </div>
+</div> <!-- /container -->  
